@@ -26,7 +26,7 @@ namespace TurboJpegWrapper
         public static IntPtr StructArrayToIntPtr<T>(T[] structArray)
         {
             var structSize =
-#if NET47
+#if NET45
                 Marshal.SizeOf(typeof(T));
 #elif NETSTANDARD2_0
                 Marshal.SizeOf<T>();

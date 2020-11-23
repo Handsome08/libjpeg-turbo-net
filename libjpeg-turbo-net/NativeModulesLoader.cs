@@ -2,6 +2,7 @@
 using System.Collections.Concurrent;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Runtime.InteropServices;
 // ReSharper disable UnusedMember.Global
 
@@ -104,7 +105,7 @@ namespace TurboJpegWrapper
                 return LoadUnmanagedModules(NativePath, unmanagedModules, logger);
             }
 
-            var location = AppContext.BaseDirectory;
+            var location = Assembly.GetEntryAssembly()?.Location;
 
             if (!Directory.Exists(location))
                 return false;

@@ -2,7 +2,7 @@
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
-[assembly:InternalsVisibleTo("TurboJpegWrapper.Tests")]
+[assembly: InternalsVisibleTo("TurboJpegWrapper.Tests")]
 
 namespace TurboJpegWrapper
 {
@@ -13,25 +13,14 @@ namespace TurboJpegWrapper
     {
         static Platform()
         {
-            if (RuntimeInformation.IsOSPlatform(OSPlatform.OSX))
-            {
-                OperationSystem = OS.MacOS;
-            }
-            else if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
-            {
-                OperationSystem = OS.Linux;
-            }
-            else
-            {
-                OperationSystem = OS.Windows;
-            }
+            OperationSystem = OS.Windows;
         }
 
         /// <summary>
         /// Get the type of the current operating system
         /// </summary>
         public static OS OperationSystem { get; }
-        
+
 
         /// <summary>
         /// Returns name of executing platform
